@@ -1,0 +1,25 @@
+//footer.less
+
+/*--------------------\
+	Layout: Footer
+\---------------------*/
+
+footer {
+	color: @footer-color;
+	background: @footer-bg-color;
+	margin: 1em 0;
+	overflow: auto; /*--prevent border-collapse--*/	
+	text-align: center;
+	@media @phone {
+		margin: 1.5em 0 1em 0;	
+	}		
+}
+footer li {
+	display: inline-block;
+	padding: 1em 10px;
+}
+.copyright {
+	font-size: 68%;
+	padding: 1em;
+	text-align: center;
+}

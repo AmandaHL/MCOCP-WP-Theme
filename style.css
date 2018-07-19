@@ -1,0 +1,561 @@
+/*
+Theme Name: Basic Goods
+Description: Custom responsive Wordpress theme powered by the HTML5Blank theme
+Version: 1.0
+Tags: responsive, full width
+Author: Amanda Long
+Author URI: http://designformation.co
+*/
+/*
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
+ 
+  1. Base
+    - Variables
+    - Mixins
+    - Defaults
+  2. Layout
+  	- Header
+  	- Footer
+  	- Sidebar
+  3. Modules
+   	- Navigation
+   	- Widgets
+  4. State
+  5. Theme
+  	- Pages
+  	- Posts
+  	- Miscellaneous
+  
+*/
+/* ---------------------------------------------------------------------- 1. Base */
+/*------------------------------------*\
+    RESPONSIVE
+\*------------------------------------*/
+/*------------------------------------*\
+    LAYOUT
+\*------------------------------------*/
+/**
+ * Credit: https://gist.github.com/juanbrujo/c3d4861627a50c0a4479
+ * @font-face LESS Mixin
+ * use: .font-face(
+ *   @font-family, // name
+ *   @file-path,   // absolute/relative URL to font files
+ *   @font-weight, // light/normal/bold/inherit | 300/400/700
+ *   @font-style   // italic/normal/inherit
+ * )
+ */
+/**
+ * font LESS Mixin
+ * use: .font(
+ *   @font-family, // name
+ *   @file-size,   // any unit/inherit
+ *   @font-weight, // light/normal/bold/inherit | 300/400/700
+ *   @font-style   // italic/normal/inherit
+ * )
+ */
+/*------------------------------------*\
+    MAIN
+\*------------------------------------*/
+/* global box-sizing */
+*,
+*:after,
+*:before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* html element 62.5% font-size for REM use */
+html {
+  font-size: 62.5%;
+}
+body {
+  font: 300 16px/1.4 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+  background-color: #fff;
+  color: #3b3b3b;
+}
+/* clear */
+.clear:before,
+.clear:after {
+  content: ' ';
+  display: table;
+}
+.clear:after {
+  clear: both;
+}
+.clear {
+  *zoom: 1;
+}
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  color: #444;
+}
+a:focus {
+  outline: 0;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+input:focus {
+  outline: 0;
+  border: 1px solid #04A4CC;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Amiri', serif;
+}
+/*------------------------------------*\
+	CONTAINERS
+\*------------------------------------*/
+.wrapper {
+  background-color: ;
+  padding: 0 5%;
+}
+section {
+  overflow: auto;
+  /*--prevent border-collapse--*/
+}
+section > div {
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1400px;
+}
+@media only screen and (min-width: 992px) {
+  section > div {
+    width: 84%;
+  }
+}
+.home-content {
+  padding: .5em 0 1em 0;
+}
+@media only screen and (min-width: 480px) {
+  .home-content {
+    padding: 1em 0 1.5em 0;
+  }
+}
+@media only screen and (min-width: 480px) {
+  .home-content > div {
+    height: auto;
+    overflow: visible;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .content {
+    margin: 2.5em auto;
+  }
+}
+/*------------------------------------*\
+	TYPOGRAPHY
+\*------------------------------------*/
+/*------------------------------------*\
+    WORDPRESS CORE
+\*------------------------------------*/
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption {
+  background: #FFF;
+  border: 1px solid #F0F0F0;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+.wp-caption .wp-caption-text,
+.gallery-caption {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+/*----------------------\
+	Extras
+\-----------------------*/
+.webkit-img {
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  .webkit-img {
+    display: block;
+  }
+}
+.normal-img {
+  display: block;
+}
+@media only screen and (min-width: 992px) {
+  .normal-img {
+    display: none;
+  }
+}
+/* ---------------------------------------------------------------------- 2. Layout */
+/*-------------------\
+	Layout: Header
+\---------------------*/
+header {
+  background: #3b3b3b;
+  clear: both;
+  margin: 0;
+  overflow: visible;
+  position: relative;
+}
+@media only screen and (min-width: 992px) {
+  header {
+    height: 60px;
+    z-index: 5;
+  }
+}
+.header-navigation {
+  /* hidden by js for mobile display */
+  background: #fff;
+  border-top: solid 4px #3b3b3b;
+  border-bottom: solid 8px #3b3b3b;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: auto;
+  z-index: 15000;
+  overflow-y: hidden;
+  padding: 0;
+}
+@media only screen and (min-width: 992px) {
+  .header-navigation {
+    background: none;
+    border: 0;
+    display: inline-block !important;
+    overflow: visible;
+    position: static;
+    text-align: right;
+    width: 60%;
+  }
+}
+.mob-head {
+  display: inline-block;
+  vertical-align: middle;
+}
+@media only screen and (min-width: 992px) {
+  .mob-head {
+    /*---hide for desktop---*/
+    display: none;
+  }
+}
+.head-inline {
+  display: none;
+  /*---hide for mobile---*/
+}
+@media only screen and (min-width: 992px) {
+  .head-inline {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+/*--Mobile Header--*/
+.logobox-mobile {
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  text-align: left;
+  width: 100%;
+}
+@media only screen and (min-width: 480px) {
+  .logobox-mobile {
+    left: 5%;
+    width: auto;
+  }
+}
+.logobox-mobile img {
+  width: 180px;
+  margin: 0 auto 0 .5em;
+}
+@media only screen and (min-width: 480px) {
+  .logobox-mobile img {
+    width: 215px;
+  }
+}
+.help-nav {
+  margin: .2em 0;
+  width: 100%;
+}
+@media only screen and (min-width: 992px) {
+  .help-nav {
+    display: none;
+  }
+}
+.help-nav > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.help-nav a {
+  color: #3b3b3b;
+  font-size: 85%;
+}
+.help-nav img {
+  cursor: pointer;
+}
+.nav-icon {
+  float: right;
+  text-align: right;
+}
+.search-icon {
+  margin-top: -0.5em;
+  width: 24px;
+}
+/*-- Desktop Header --*/
+.logobox {
+  color: #fff;
+  margin: 0;
+  z-index: 20;
+  width: 35%;
+}
+.logobox a {
+  color: #fff;
+}
+.logobox img {
+  margin: 0;
+  width: 420px;
+  height: auto;
+}
+/*--------------------\
+	Layout: Footer
+\---------------------*/
+footer {
+  color: #bfbeb8;
+  background: #3b3b3b;
+  margin: 1em 0;
+  overflow: auto;
+  /*--prevent border-collapse--*/
+  text-align: center;
+}
+@media only screen and (min-width: 480px) {
+  footer {
+    margin: 1.5em 0 1em 0;
+  }
+}
+footer li {
+  display: inline-block;
+  padding: 1em 10px;
+}
+.copyright {
+  font-size: 68%;
+  padding: 1em;
+  text-align: center;
+}
+/*-------------------Layout: Sidebar---------------------*/
+/*--Use Sidebar template--*/
+.use-sidebar {
+  margin: 1.5em auto;
+}
+@media only screen and (min-width: 768px) {
+  .use-sidebar {
+    margin: 2.5em auto;
+  }
+}
+.use-sidebar > div {
+  display: block;
+}
+@media only screen and (min-width: 768px) {
+  .use-sidebar > div {
+    display: inline-block !important;
+    vertical-align: top;
+  }
+}
+.left-content {
+  margin: 0 auto;
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .left-content {
+    margin-right: 4%;
+    width: 64%;
+  }
+}
+.sidebar {
+  background: #fff;
+  border: solid 1px #020202;
+  text-align: center;
+  margin: 2em auto 0 auto;
+  width: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .sidebar {
+    margin: 0;
+    width: 30%;
+  }
+}
+.widgettitle {
+  display: none;
+}
+.sidebar li {
+  list-style: none;
+}
+.sidebar ul {
+  margin: 1em 0;
+}
+/* ---------------------------------------------------------------------- 3. Modules */
+header nav li a,
+footer nav li a {
+  color: #bfbeb8;
+}
+header nav li a:hover,
+footer nav li a:hover {
+  color: #fff;
+}
+@media only screen and (min-width: 992px) {
+  header nav li a,
+  footer nav li a {
+    color: #bfbeb8;
+  }
+  header nav li a:hover,
+  footer nav li a:hover {
+    color: #fff;
+  }
+}
+header nav .current-menu-item a,
+footer nav .current-menu-item a,
+header nav .current-menu-ancestor a,
+footer nav .current-menu-ancestor a,
+header nav .current_page_item a,
+footer nav .current_page_item a,
+header nav .current_page_ancestor a,
+footer nav .current_page_ancestor a {
+  color: #fff;
+}
+/*----------------------\
+header nav menu styles 
+\----------------------*/
+@media only screen and (min-width: 992px) {
+  .header-nav {
+    background: none;
+    clear: both;
+    display: inline-block;
+    height: auto;
+    margin: 1.5em 0 0 0;
+    width: 100%;
+    z-index: 20000;
+  }
+}
+.header-nav li {
+  clear: both;
+  border-bottom: solid thin #000;
+  display: block;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .header-nav li {
+    border-bottom: none;
+    display: inline-block;
+    overflow: visible;
+    padding: 0 20px;
+    text-align: left;
+    vertical-align: top;
+  }
+}
+.header-nav li:hover {
+  background: none;
+}
+@media only screen and (min-width: 992px) {
+  .header-nav li a:hover {
+    color: #fff;
+  }
+}
+.header-nav li:first-child {
+  margin-top: .5em;
+}
+@media only screen and (min-width: 992px) {
+  .header-nav li:first-child {
+    margin-top: 0;
+  }
+}
+.header-nav li:last-child {
+  border-bottom: none;
+}
+nav li a {
+  height: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.header-nav .current-page-ancestor,
+.header-nav .current-menu-item {
+  background: #3b3b3b;
+}
+@media only screen and (min-width: 992px) {
+  .header-nav .current-page-ancestor,
+  .header-nav .current-menu-item {
+    background: none;
+  }
+}
+.header-nav .current-page-ancestor a,
+.header-nav .current-menu-item a {
+  color: #fff;
+}
+/*----------------------\
+footer nav menu styles 
+\----------------------*/
+/* ---------------------------------------------------------------------- 4. State */
+@media only screen and (min-width: 992px) {
+  .collapsible {
+    display: show;
+  }
+}
+/* ---------------------------------------------------------------------- 5. Theme */
+/*# sourceMappingURL=style.css.map */

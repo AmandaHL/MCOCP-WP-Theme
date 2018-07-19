@@ -1,0 +1,85 @@
+//navigation.less
+
+header nav,
+footer nav {
+    li {
+        .links(@menu-items-color, @menu-items-color-hover);
+    }
+    .current-menu-item,
+    .current-menu-ancestor,
+    .current_page_item,
+    .current_page_ancestor {
+    a {
+        color: @menu-items-color-active;
+    }
+	}
+}
+
+/*----------------------\
+header nav menu styles 
+\----------------------*/
+
+
+.header-nav {
+	@media @desktop {
+		background: none;
+		clear: both;
+		display: inline-block;
+		height: auto;
+		margin: 1.5em 0 0 0;
+		width: 100%;
+		z-index: 20000;
+	}
+}
+.header-nav li {
+	clear: both;
+	border-bottom: solid thin @black;
+	display: block;
+	line-height: 30px;
+	position: relative;
+	text-align: center;
+	@media @desktop {
+		border-bottom: none;
+		display: inline-block;
+		overflow: visible;
+		padding: 0 20px;
+		text-align: left;
+		vertical-align: top;
+	}
+}
+.header-nav li:hover {
+	background: none;
+}
+.header-nav li a:hover {
+	@media @desktop {
+	color: @white;	
+	}
+}
+.header-nav li:first-child {
+	margin-top: .5em;
+	@media @desktop {
+		margin-top: 0;
+	}
+}
+.header-nav li:last-child {
+	border-bottom: none;
+}
+nav li a {
+	height: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.header-nav .current-page-ancestor,
+.header-nav .current-menu-item {
+	background: @gray-dark;
+	@media @desktop {
+		background: none;
+	}
+}
+.header-nav .current-page-ancestor a,
+.header-nav .current-menu-item a{
+	color: @white;
+}
+/*----------------------\
+footer nav menu styles 
+\----------------------*/

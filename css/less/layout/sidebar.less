@@ -1,0 +1,46 @@
+//sidebar.less
+
+/*-------------------Layout: Sidebar---------------------*/
+
+/*--Use Sidebar template--*/
+.use-sidebar {
+	margin: 1.5em auto;
+	@media @tablet {
+		margin: 2.5em auto;
+	}
+}
+.use-sidebar > div {
+	display: block;
+	@media @tablet {
+		display: inline-block !important;
+		vertical-align: top;
+	}
+}
+.left-content {
+	margin: 0 auto;
+	width: 100%;
+	@media @tablet {
+		margin-right: 4%;
+		width: 64%;
+	}
+}
+.sidebar {
+	background: @white;
+	border: solid 1px #020202;	
+	text-align: center;
+	margin: 2em auto 0 auto;
+	width: 100%;
+	@media @tablet {
+		margin: 0;
+		width: 30%
+	}
+}
+.widgettitle {
+	display: none;
+}
+.sidebar li {
+	list-style: none;
+}
+.sidebar ul {
+	margin: 1em 0;
+}

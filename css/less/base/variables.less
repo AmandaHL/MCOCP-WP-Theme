@@ -1,0 +1,65 @@
+// variables.less
+
+/*------------------------------------*\
+    RESPONSIVE
+\*------------------------------------*/
+@xs-min: 480px;
+@sm-min: 768px;
+@md-min: 992px;
+@lg-min: 1200px;
+
+@xs-max: (@sm-min - 1);
+@sm-max: (@md-min - 1);
+@md-max: (@lg-min - 1);
+
+@phone:          ~"only screen and (min-width: @{xs-min})";
+@tablet:         ~"only screen and (min-width: @{sm-min})";
+@desktop:        ~"only screen and (min-width: @{md-min})";
+@large:          ~"only screen and (min-width: @{lg-min})";
+
+/*------------------------------------*\
+    LAYOUT
+\*------------------------------------*/
+
+@max-width-div:	1400px;
+
+//Typography
+@body-font-stack: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+@header-font-stack: 'Amiri', serif;
+
+// Colors
+@white: #fff;
+@black:#000;
+@gray-darkest: #3a372c; 	
+@gray-dark: #3b3b3b; 		
+@gray-light: #bfbeb8; 		
+
+// Content
+@body-bg-color: @white;
+@body-color: @gray-dark;
+@header-bg-color: @gray-dark;
+@wrapper-bg-color: ;
+@sidebar-bg-color: ;
+@footer-color: @gray-light;
+@footer-bg-color: @gray-dark;
+
+// Subheads
+@h2-color: @black;
+@h3-color: @black;
+@h4-color: @gray-light;
+
+// Links 
+@link-color: @gray-dark;
+@link-color-visited: @gray-dark;
+@link-color-hover: @gray-light;
+
+// Navigation
+@mob-nav-bg-color: @white;
+@mob-nav-color: @gray-dark;
+@menu-items-bg-color-mob: @gray-dark;
+@menu-items-color-hover-mob: @gray-light;
+@menu-items-color: @gray-light;
+@menu-items-color-hover: @white;
+@menu-items-color-active: @white;
+
+ 
