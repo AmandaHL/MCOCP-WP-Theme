@@ -3,48 +3,62 @@ Template Name: Front Page
 */ 
 get_header();?>
 <main role="main">
-	<section class="hero">
-
-		<div class="hero-content">
-	
+	<section class="bannerbox-home">
+		<div class="home-banner-content">
 			<?php
-				// Retrieves the stored value from the database
-				$slide = get_post_meta(get_the_ID(), '_cmb_banner_slide', true);
  
-				// Checks and displays the retrieved value
-				if( !empty( $slide ) ) {
-				 echo '<div class="home-slider">'.$slide.'</div><!--.home-slider-->';
-				}
+			// Retrieves the stored value from the database
+			$bannerImage = get_post_meta(get_the_ID(), 'mcocp_banner_image', true);
+ 
+			// Checks and displays the retrieved value
+			if( !empty( $bannerImage ) ) {
+				 echo '<div class="home-banner"><img src="'.$bannerImage.'"></div><!--.home-banner-->';
+			}
+ 
 			?>
+		</div><!--.home-banner-content-->
+	</section><!--bannerbox-home-->
 	
-		</div><!--hero-content-->
+	<section class="secondary-nav">
+		<?php //get the Featured metabox content
+			get_template_part('parts/secondary-nav');
+		?>
+	</section><!--.secondary-nav-->
 	
-	</section><!--.hero-->
-
-	<section class="home-content">
-
-		<div class="entry-content">
-	
-			<div>
+	<section class="mission">
+		<div>
+			<div class="content">
+				<h6>THE COLLEGE PROMISE MISSION</h6>
+				<div class="mission-content">
+					<div>
 		
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-				<?php the_content(); ?>
-				<?php endwhile; endif; ?>
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php the_content(); ?>
+						<?php endwhile; endif; ?>
 			
-			</div>
+					</div>
+					<div>
+						<div class="fact-box">
+	
+							<?php get_template_part('parts/facts');?>	
+						
+						</div>
+					</div>
+				</div><!--.two-col-->
+			</div><!--.content-->
+		</div>
+	</section><!--.mission-->
+	<section class="spotlight">
+		<h2>STUDENT SPOTLIGHT</h2>
+		<div>
+			<div class="content">
 		
-		</div><!--.entry-content-->
+			<?php get_template_part('parts/spotlight');?>	
+		
+			</div>
+		</div>
 	
-	</section><!--.home-content-->
-
-	
-	
-	<section>
-
-		<div>Content of choice... Optional section shows when content is entered in page edit area.</div>
-	
-	</section>
-
+	</section><!--.spotlight-->
 </main>
  
 <?php get_footer(); ?>

@@ -1,1 +1,68 @@
 // misc.less
+
+/*------------------------------------*\
+	PLUGIN - WP FORMS
+\*------------------------------------*/
+
+.wpforms-field-container {
+	border: solid thin #ddd;
+	padding: 2em;
+	width: 100%;
+	p {	
+		font-size: 16px !important;
+		color: @blue !important;
+		font-weight: 600;
+	}
+	h3 {
+		padding-top: 2em !important;
+	}
+	li {
+		font-size: 16px !important;
+		color: @blue !important;
+		font-weight: 400;
+		&::before {
+			display: none !important;
+		}
+	}	
+	@media @desktop {
+		
+	}
+}
+
+.wpforms-field {
+	border: none;
+	border-bottom: solid thin @lt-blue;
+	
+}
+.wpforms-field-checkbox {
+	border:none;
+}
+.wpforms-field-label,
+::placeholder {
+	color: @blue;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 5px 0 3px 5px;
+	overflow: visible;
+}
+textarea {
+	border: solid thin @lt-blue;
+}
+textarea:focus {
+	outline: 0;
+}
+.wpforms-field-textarea {
+	border: 0;
+	margin-top: 1em;
+}
+/*.wpforms-field input {
+	border: 0 !important;
+	
+}*/
+.wpforms-required-label {
+	display: none;
+}
+.form-section-border-bottom {
+	border-bottom: solid thin #eee !important;
+	margin-bottom: 1em !important;
+}

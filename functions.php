@@ -100,6 +100,8 @@ function html5blank_header_scripts()
 
         wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
         wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_register_script( 'jqueryCycle2', get_template_directory_uri() . '/js/cycle2.js' , array ( 'jquery'), '1.0', true); 
+		wp_enqueue_script( 'jqueryCycle2');
     }
 }
 
@@ -394,45 +396,135 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 /*------------------------------------*\
 	Custom Post Types
 \*------------------------------------*/
-
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
+// Home Page - Fact Carousel
+add_action('init', 'facts_register');
+ function facts_register() {
+ $labels = array(
+		'name' => __('Facts'),
+		'singular_name' => __('Fact'),
+		'add_new' => __('Add New', 'Fact'),
+		'add_new_item' => __('Fact'),
+		'edit_item' => __('Fact'),
+		'new_item' => __('Fact'),
+		'view_item' => __('Fact'),
+		'search_items' => __('Search Facts'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+ $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => true,
+		'menu_position' => null,
+		'has_archive' => true,
+		'supports' => array('title','editor', 'revisions', 'author', 'post-formats')
+		); 
+ register_post_type( 'facts' , $args );
 }
 
+//Home Page - Student Spotlight
+add_action('init', 'spotlight_register');
+ function spotlight_register() {
+ $labels = array(
+		'name' => __('Student Spotlight'),
+		'singular_name' => __('Quote'),
+		'add_new' => __('Add New', 'Quote'),
+		'add_new_item' => __('Quote'),
+		'edit_item' => __('Quote'),
+		'new_item' => __('Quote'),
+		'view_item' => __('Quote'),
+		'search_items' => __('Search Quotes'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+ $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => true,
+		'menu_position' => null,
+		'has_archive' => true,
+		'supports' => array('title','editor', 'revisions', 'author', 'post-formats')
+		); 
+ register_post_type( 'spotlight' , $args );
+}
+
+//Recipients
+add_action('init', 'recipients_register');
+ function recipients_register() {
+ $labels = array(
+		'name' => __('Recipients'),
+		'singular_name' => __('Recipient'),
+		'add_new' => __('Add New', 'Recipient'),
+		'add_new_item' => __('Recipient'),
+		'edit_item' => __('Recipient'),
+		'new_item' => __('Recipient'),
+		'view_item' => __('Recipient'),
+		'search_items' => __('Search Recipients'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+ $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => true,
+		'menu_position' => null,
+		'has_archive' => true,
+		'supports' => array('title','editor', 'revisions', 'author', 'post-formats')
+		); 
+ register_post_type( 'recipient' , $args );
+}
+add_action('init', 'schools_register');
+ function schools_register() {
+ $labels = array(
+		'name' => __('High Schools'),
+		'singular_name' => __('High School'),
+		'add_new' => __('Add New', 'High School'),
+		'add_new_item' => __('High School'),
+		'edit_item' => __('High School'),
+		'new_item' => __('High School'),
+		'view_item' => __('High School'),
+		'search_items' => __('Search High Schools'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+ $args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => true,
+		'menu_position' => null,
+		'has_archive' => true,
+		'supports' => array('title', 'revisions', 'author', 'post-formats')
+		); 
+ register_post_type( 'schools' , $args );
+}
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
@@ -449,11 +541,10 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
     return '<h2>' . $content . '</h2>';
 }
 
-/*------------------------------------*\
-	Additional Installation Functions
-\*------------------------------------*/
 
-//add custom metaboxes using cmb2
+/*------------------------------------*\
+  Add Custom Metaboxes using CMB2
+\*------------------------------------*/  
 
 if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
 	require_once dirname( __FILE__ ) . '/cmb2/init.php';
@@ -468,7 +559,7 @@ if ( file_exists( dirname( __FILE__ ) . '/cmb2/init.php' ) ) {
  *
  * @return bool             True if metabox should show
  */
-function bg_show_if_front_page( $cmb ) {
+function mcocp_show_if_front_page( $cmb ) {
 	// Don't show this metabox if it's not the front page template
 	if ( $cmb->object_id !== get_option( 'page_on_front' ) ) {
 		return false;
@@ -476,24 +567,58 @@ function bg_show_if_front_page( $cmb ) {
 	return true;
 }
 
-//Home Page Slider
+/**
+	* General Metaboxes
+*/
+//Default Page Banner
+add_action( 'cmb2_init', 'page_banner_register_metabox' );
+function page_banner_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_banner_box = new_cmb2_box( array(
+		'id'            => $prefix . 'banner_box',
+		'title'         => __( 'Page Banner', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_banner_box->add_field( array(
+		'name' => esc_html__( 'Banner Image', 'cmb2' ),
+		'desc' => esc_html__( 'Upload the banner image.', 'cmb2' ),
+		'id'   => $prefix . 'banner_image',
+		'type' => 'file'
+	) );
+	$mcocp_banner_box->add_field( array(
+		'name' => esc_html__( 'Title Text', 'cmb2' ),
+		'desc' => esc_html__( 'Customize large banner text.', 'cmb2' ),
+		'id'   => $prefix . 'landing_title',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_banner_box->add_field( array(
+		'name' => esc_html__( 'Banner Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add additional paragraph text.', 'cmb2' ),
+		'id'   => $prefix . 'lg_banner_text',
+		'type' => 'textarea_small'
+	) );
+}
+
+//Hero Slideshow
 add_action( 'cmb2_admin_init', 'home_slider_register_metabox' );
 function home_slider_register_metabox() {
-	$prefix = 'bg_group_';
+	$prefix = 'mcocp_group_';
 	/**
 	 * Repeatable Field Groups
 	 */
-	$bg_slide_group = new_cmb2_box( array(
+	$mcocp_slide_group = new_cmb2_box( array(
 		'id'           => $prefix . 'home_slides',
 		'title'        => __( 'Home Page Slider', 'cmb2' ),
 		'object_types' => array( 'page', ),
-		'show_on_cb' => 'bg_show_if_front_page',
+		'show_on_cb' => 'mcocp_show_if_front_page',
 		'closed'     => true, // true to keep the metabox closed by default
 		
 	) );
 
 	// $group_field_id is the field id string, so in this case: $prefix . 'home_slider_box'
-	$group_field_id = $bg_slide_group->add_field( array(
+	$group_field_id = $mcocp_slide_group->add_field( array(
 		'id'          => 'home_slider_box',
 		'type'        => 'group',
 		'description' => __( 'Use the fields below to populate the slider. Add additional slides as needed.' ),
@@ -512,19 +637,19 @@ function home_slider_register_metabox() {
 	 * The parent field's id needs to be passed as the first argument.
 	 */
 	 
-	$bg_slide_group->add_group_field( $group_field_id, array(
+	$mcocp_slide_group->add_group_field( $group_field_id, array(
 		'name' => __( 'Slide Image', 'cmb2' ),
 		'description' => __( 'Upload Slide Image', 'cmb2' ),
 		'id'   => 'slide_image',
 		'type' => 'file',
 	) );
-	$bg_slide_group->add_group_field( $group_field_id, array(
+	$mcocp_slide_group->add_group_field( $group_field_id, array(
 		'name'        => __( 'Slide Header', 'cmb2' ),
 		'description' => __( 'Add Header Text.', 'cmb2' ),
 		'id'          => 'slide_header',
 		'type'        => 'textarea_small',
 	) );
-	$bg_slide_group->add_group_field( $group_field_id, array(
+	$mcocp_slide_group->add_group_field( $group_field_id, array(
 		'name'        => __( 'Slide Text', 'cmb2' ),
 		'description' => __( 'Add Paragraph Text.', 'cmb2' ),
 		'id'          => 'slide_text',
@@ -532,7 +657,7 @@ function home_slider_register_metabox() {
 	) );
 	
 
-	$bg_slide_group->add_group_field( $group_field_id, array(
+	$mcocp_slide_group->add_group_field( $group_field_id, array(
 		'name' => esc_html__( 'Link to Page', 'cmb2' ),
 		'desc' => esc_html__( 'Input the url for the Learn More destination page.', 'cmb2' ),
 		'id'   => 'learn_more',
@@ -541,31 +666,36 @@ function home_slider_register_metabox() {
 
 }
 
-add_action( 'cmb2_admin_init', 'bg_featured_content_register' );
+/**
+	* Home Page Metaboxes
+*/
+	
+//Secondary Navigation
+add_action( 'cmb2_admin_init', 'mcocp_nav_boxes_register' );
 /**
  * Hook in and add a metabox to demonstrate repeatable grouped fields
  */
-function bg_featured_content_register() {
-$prefix = 'bg_group_';
+function mcocp_nav_boxes_register() {
+$prefix = 'mcocp_group_';
 	
 /**
 	 * Repeatable Field Groups
 	 */
-	$bg_featured_group = new_cmb2_box( array(
-		'id'           => $prefix . 'featured',
-		'title'        => __( 'Featured Content', 'cmb2' ),
+	$mcocp_featured_group = new_cmb2_box( array(
+		'id'           => $prefix . 'nav_boxes',
+		'title'        => __( 'Secondary Nav Bar', 'cmb2' ),
 		'object_types' => array( 'page'),
-		'show_on_cb' => 'bg_show_if_front_page',
+		'show_on_cb' => 'mcocp_show_if_front_page',
 		'closed'     => true, // true to keep the metabox closed by default
 	) );
 
 	// $group_field_id is the field id string, so in this case: $prefix . 'demo'
-	$group_field_id = $bg_featured_group->add_field( array(
-		'id'          => 'featured_box',
+	$group_field_id = $mcocp_featured_group->add_field( array(
+		'id'          => 'nav_box',
 		'type'        => 'group',
-		'description' => __( 'Use the 3 boxes below to add Featured Content. If this section has content, it will appear below the slider on the Home page. Note: The layout is designed for 3 boxes of content. Using less than 3 is not advised. ' ),
+		'description' => __( 'Use the 4 boxes below to edit secondary navigation boxes. If this section has content, it will appear below the banner on the Home page. Note: The layout is designed for 4 boxes of content. Using less than 4 is not advised. ' ),
 		'options'     => array(
-			'group_title'   => __( 'Featured Box {#}', 'cmb2' ), // {#} gets replaced by row number
+			'group_title'   => __( 'Nav Box {#}', 'cmb2' ), // {#} gets replaced by row number
 			/*'add_button'    => __( 'Add Another Box', 'cmb2' ),
 			'remove_button' => __( 'Remove Box', 'cmb2' ),*/
 			'add_button'    => false,
@@ -581,28 +711,21 @@ $prefix = 'bg_group_';
 	 *
 	 * The parent field's id needs to be passed as the first argument.
 	 */
-	$bg_featured_group->add_group_field( $group_field_id, array(
-		'name'       => __( 'Feature Title', 'cmb2' ),
+	 $mcocp_featured_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Nav Box Icon', 'cmb2' ),
+		'id'   => 'image',
+		'type' => 'file',
+	) );
+	
+	$mcocp_featured_group->add_group_field( $group_field_id, array(
+		'name'       => __( 'Title', 'cmb2' ),
 		'id'         => 'title',
 		'type'       => 'text',
 		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 	) );
 
-	$bg_featured_group->add_group_field( $group_field_id, array(
-		'name'        => __( 'Feature Text', 'cmb2' ),
-		'description' => __( 'Small Image Text', 'cmb2' ),
-		'id'          => 'featured-text',
-		'type'        => 'textarea_small',
-	) );
-
-	$bg_featured_group->add_group_field( $group_field_id, array(
-		'name' => __( 'Feature Image', 'cmb2' ),
-		'id'   => 'image',
-		'type' => 'file',
-	) );
-
-	$bg_featured_group->add_group_field( $group_field_id, array(
-		'name' => esc_html__( 'Link to Page', 'cmb2' ),
+	$mcocp_featured_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Link to Content', 'cmb2' ),
 		'desc' => esc_html__( 'Input the url for the featured content.', 'cmb2' ),
 		'id'   => 'link_box',
 		'type' => 'text_url',
@@ -610,34 +733,522 @@ $prefix = 'bg_group_';
 
 }
 
-//Default Page Banner
-add_action( 'cmb2_init', 'page_banner_register_metabox' );
-function page_banner_register_metabox() {
-	$prefix = 'bg_';
+//Student Spotlight
+add_action( 'cmb2_init', 'spotlight_register_metabox' );
+function spotlight_register_metabox() {
+	$prefix = 'mcocp_';
 
-	$bg_banner_box = new_cmb2_box( array(
-		'id'            => $prefix . 'banner_box',
-		'title'         => __( 'Page Banner', 'cmb2' ),
-		'object_types'  => array( 'page', ), // Post type
+	$mcocp_spotlight_box = new_cmb2_box( array(
+		'id'            => $prefix . 'spotlight_box',
+		'title'         => __( 'Student Details', 'cmb2' ),
+		'object_types'  => array( 'spotlight', ), // Post type
 		'closed'     => true, // true to keep the metabox closed by default
 	) );
-	$bg_banner_box->add_field( array(
-		'name' => esc_html__( 'Banner Image', 'cmb2' ),
-		'desc' => esc_html__( 'Upload the banner image.', 'cmb2' ),
-		'id'   => $prefix . 'banner_image',
+	$mcocp_spotlight_box->add_field( array(
+		'name' => esc_html__( 'Student Photo', 'cmb2' ),
+		'desc' => esc_html__( 'Upload image image (200x200px is best).', 'cmb2' ),
+		'id'   => $prefix . 'student_photo',
 		'type' => 'file'
 	) );
-	$bg_banner_box->add_field( array(
-		'name' => esc_html__( 'Title Text', 'cmb2' ),
-		'desc' => esc_html__( 'Customize large banner text.', 'cmb2' ),
-		'id'   => $prefix . 'landing_title',
+	$mcocp_spotlight_box->add_field( array(
+		'name' => esc_html__( 'Student Name', 'cmb2' ),
+		'desc' => esc_html__( 'Add the name of the student here.', 'cmb2' ),
+		'id'   => $prefix . 'student_name',
 		'type' => 'textarea_small'
 	) );
-	$bg_banner_box->add_field( array(
-		'name' => esc_html__( 'Banner Text', 'cmb2' ),
-		'desc' => esc_html__( 'Add additional paragraph text.', 'cmb2' ),
-		'id'   => $prefix . 'lg_banner_text',
+	
+}
+/**
+	* Page Metaboxes
+*/
+
+//About Page - Donors
+add_action( 'cmb2_init', 'donors_register_metabox' );
+function donors_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_donors_box = new_cmb2_box( array(
+		'id'            => $prefix . 'donors',
+		'title'         => __( 'Donors', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 73 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_donors_box->add_field( array(
+		'name' => esc_html__( 'Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section text in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'donors_txt',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_donors_box->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_donors',
 		'type' => 'textarea_small'
+	) );
+	$mcocp_donors_box->add_field( array(
+		'name' => esc_html__( 'Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_donors',
+		'type' => 'text_url'
+	) );
+}
+//About Page - Partner Logos
+add_action( 'cmb2_admin_init', 'partners_register_metabox' );
+function partners_register_metabox() {
+	$prefix = 'mcocp_group_';
+	/**
+	 * Repeatable Field Groups
+	 */
+	$logo_group = new_cmb2_box( array(
+		'id'           => $prefix . 'partner_logos',
+		'title'        => __( 'College Partners', 'cmb2' ),
+		'object_types' => array( 'page', ),
+		'show_on' => array( 'key' => 'id', 'value' => array( 73 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+		
+	) );
+
+	// $group_field_id is the field id string, so in this case: $prefix . 'home_slider_box'
+	$group_field_id = $logo_group->add_field( array(
+		'id'          => 'partner_logo',
+		'type'        => 'group',
+		'description' => __( 'Use the fields below to edit college partners. Add additional logos as needed.' ),
+		'options'     => array(
+			'group_title'   => __( 'Logo {#}', 'cmb2' ), // {#} gets replaced by row number
+			'add_button'    => __( 'Add Logo', 'cmb2' ),
+			'remove_button' => __( 'Remove Logo', 'cmb2' ),
+			'sortable'      => true, 
+			'closed'     => true, // true to have the groups closed by default
+		),
+	) );
+	 
+		$logo_group->add_group_field( $group_field_id, array(
+			'name' => __( 'Logo Image', 'cmb2' ),
+			'description' => __( 'Upload Logo Image', 'cmb2' ),
+			'id'   => 'logo_image',
+			'type' => 'file',
+		) );
+		$logo_group->add_group_field( $group_field_id, array(
+			'name'        => __( 'Partner URL', 'cmb2' ),
+			'description' => __( 'Add website url.', 'cmb2' ),
+			'id'          => 'logo_url',
+			'type' => 'text_url',
+		) );
+}
+//Scholarship Page - Application Process
+add_action( 'cmb2_init', 'process_register_metabox' );
+function process_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_process_box = new_cmb2_box( array(
+		'id'            => $prefix . 'app_process',
+		'title'         => __( 'Application Process', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 6 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_process_box->add_field( array(
+		'name' => esc_html__( 'Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section text in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'process_txt',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_process_box->add_field( array(
+		'name' => esc_html__( 'English Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_process_en',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_process_box->add_field( array(
+		'name' => esc_html__( 'English Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_process_en',
+		'type' => 'text_url'
+	) );
+	$mcocp_process_box->add_field( array(
+		'name' => esc_html__( 'Spanish Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_process_sp',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_process_box->add_field( array(
+		'name' => esc_html__( 'Spanish Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_process_sp',
+		'type' => 'text_url'
+	) );
+	
+}
+//Mentoring Page - Become a Mentor
+add_action( 'cmb2_init', 'mentor_become_register_metabox' );
+function mentor_become_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_m_become_box = new_cmb2_box( array(
+		'id'            => $prefix . 'mentor_become',
+		'title'         => __( 'Application Process', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 8 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_m_become_box->add_field( array(
+		'name' => esc_html__( 'Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section text in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'm_become_txt',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_m_become_box->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_m_brochure',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_m_become_box->add_field( array(
+		'name' => esc_html__( 'Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_m_brochure',
+		'type' => 'text_url'
+	) );
+}
+//Mentoring Page - Apply
+add_action( 'cmb2_admin_init', 'mentor_apply_register_metabox' );
+
+function mentor_apply_register_metabox() {
+$prefix = 'mcocp_group_';
+	
+	$mcocp_m_apply_group = new_cmb2_box( array(
+		'id'           => $prefix . 'mentor_apply',
+		'title'        => __( 'Application Options', 'cmb2' ),
+		'object_types' => array( 'page'),
+		'show_on' => array( 'key' => 'id', 'value' => array( 8 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$group_field_id = $mcocp_m_apply_group->add_field( array(
+		'id'          => 'm_apply_box',
+		'type'        => 'group',
+		'description' => __( 'Use the fields below to edit the box content. ' ),
+		'options'     => array(
+			'group_title'   => __( 'Apply Box {#}', 'cmb2' ), // {#} gets replaced by row number
+			/*'add_button'    => __( 'Add Another Box', 'cmb2' ),
+			'remove_button' => __( 'Remove Box', 'cmb2' ),*/
+			'add_button'    => false,
+			'remove_button' => false,
+			'sortable'      => true, // beta
+			'closed'     => true, // true to have the groups closed by default
+		),
+	) );
+
+	 $mcocp_m_apply_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Header Text', 'cmb2' ),
+		'id'   => 'm_apply_header',
+		'type' => 'text',
+	) );
+	
+	$mcocp_m_apply_group->add_group_field( $group_field_id, array(
+		'name'       => __( 'Text', 'cmb2' ),
+		'id'         => 'm_apply_text',
+		'type'       => 'textarea',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	$mcocp_m_apply_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Button Link', 'cmb2' ),
+		'id'   => 'm_link_text',
+		'type' => 'text',
+	) );
+	$mcocp_m_apply_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Link to Content', 'cmb2' ),
+		'desc' => esc_html__( 'Input the url for the featured content.', 'cmb2' ),
+		'id'   => 'm_link_box',
+		'type' => 'text_url',
+	) );
+
+}
+//Mentoring Page - Current
+add_action( 'cmb2_init', 'mentor_current_register_metabox' );
+function mentor_current_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_m_current = new_cmb2_box( array(
+		'id'            => $prefix . 'mentor_current',
+		'title'         => __( 'Current Mentors', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 8 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_m_current->add_field( array(
+		'name' => esc_html__( 'Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section text in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'm_current_txt',
+		'type' => 'wysiwyg'
+	) );
+	
+}
+//Mentoring Page - Policies
+add_action( 'cmb2_init', 'mentor_policies_register_metabox' );
+function mentor_policies_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_m_policies = new_cmb2_box( array(
+		'id'            => $prefix . 'mentor_policies',
+		'title'         => __( 'Policies and Procedures', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 8 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_m_policies->add_field( array(
+		'name' => esc_html__( 'Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section text in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'm_policies_txt',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_m_policies->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_m_waiver',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_m_policies->add_field( array(
+		'name' => esc_html__( 'Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_m_waiver',
+		'type' => 'text_url'
+	) );
+	
+}
+//Support Page - Boxes
+add_action( 'cmb2_admin_init', 'support_register_metabox' );
+
+function support_register_metabox() {
+$prefix = 'mcocp_group_';
+	
+	$mcocp_support_group = new_cmb2_box( array(
+		'id'           => $prefix . 'support_boxes',
+		'title'        => __( 'Support Options', 'cmb2' ),
+		'object_types' => array( 'page'),
+		'show_on' => array( 'key' => 'id', 'value' => array( 10 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$group_field_id = $mcocp_support_group->add_field( array(
+		'id'          => 'support_box',
+		'type'        => 'group',
+		'description' => __( 'Use the fields below to edit the box content. ' ),
+		'options'     => array(
+			'group_title'   => __( 'Support Option {#}', 'cmb2' ), // {#} gets replaced by row number
+			/*'add_button'    => __( 'Add Another Box', 'cmb2' ),
+			'remove_button' => __( 'Remove Box', 'cmb2' ),*/
+			'add_button'    => false,
+			'remove_button' => false,
+			'sortable'      => true, // beta
+			'closed'     => true, // true to have the groups closed by default
+		),
+	) );
+
+	 $mcocp_support_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Header Text', 'cmb2' ),
+		'id'   => 'support_header',
+		'type' => 'text',
+	) );
+	
+	$mcocp_support_group->add_group_field( $group_field_id, array(
+		'name'       => __( 'Text', 'cmb2' ),
+		'id'         => 'support_text',
+		'type'       => 'textarea',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	
+	$mcocp_support_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Button Text', 'cmb2' ),
+		'id'   => 'support_link_text',
+		'type' => 'text',
+	) );
+	
+	$mcocp_support_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Link to Content', 'cmb2' ),
+		'desc' => esc_html__( 'Input the url for the featured content.', 'cmb2' ),
+		'id'   => 'support_link_box',
+		'type' => 'text_url',
+	) );
+
+}
+
+//Donate Page - Donate Box
+add_action( 'cmb2_admin_init', 'donate_register_metabox' );
+
+function donate_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_donate = new_cmb2_box( array(
+		'id'            => $prefix . 'donate',
+		'title'         => __( 'Donate Box', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 85 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_donate->add_field( array(
+		'name'       => __( 'Text', 'cmb2' ),
+		'id'         => 'd_donate_text',
+		'type'       => 'textarea',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	$mcocp_donate->add_field( array(
+		'name' => __( 'Button Link', 'cmb2' ),
+		'id'   => 'd_link_text',
+		'type' => 'text',
+	) );
+	$mcocp_donate->add_field( array(
+		'name' => esc_html__( 'Link to Content', 'cmb2' ),
+		'desc' => esc_html__( 'Input the url for the featured content.', 'cmb2' ),
+		'id'   => 'd_link_url',
+		'type' => 'text_url',
+	) );
+}
+//Donate Page - Funding Commitment
+add_action( 'cmb2_init', 'donate_funding_register_metabox' );
+function donate_funding_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_d_funding_box = new_cmb2_box( array(
+		'id'            => $prefix . 'd_funding_commit',
+		'title'         => __( 'Funding Commitment', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 85 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Form Intro Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add text to precede the form.', 'cmb2' ),
+		'id'   => $prefix . 'd_pre_form',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Funding Commitment Form', 'cmb2' ),
+		'desc' => esc_html__( 'Paste form shortcode into the editor.', 'cmb2' ),
+		'id'   => $prefix . 'd_funding_form',
+		'type' => 'text'
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Form Post Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add text to follow the form.', 'cmb2' ),
+		'id'   => $prefix . 'd_post_form',
+		'type' => 'wysiwyg'
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add button text.', 'cmb2' ),
+		'id'   => $prefix . 'd_funding_btn_txt',
+		'type' => 'text',
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Link to Form', 'cmb2' ),
+		'desc' => esc_html__( 'Input the url for pdf.', 'cmb2' ),
+		'id'   => 'd_funding_btn_url',
+		'type' => 'text_url',
+	) );
+	$mcocp_d_funding_box->add_field( array(
+		'name' => esc_html__( 'Additional Section Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add section content in the editor.', 'cmb2' ),
+		'id'   => $prefix . 'd_funding_txt',
+		'type' => 'wysiwyg'
+	) );
+}
+//Partners Page - Benefits
+add_action( 'cmb2_admin_init', 'p_benefits_register_metabox' );
+
+function p_benefits_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_p_benefits = new_cmb2_box( array(
+		'id'            => $prefix . 'partner_benefits',
+		'title'         => __( 'Benefits', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 88 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_p_benefits->add_field( array(
+		'name'       => __( 'Section Content', 'cmb2' ),
+		'id'         => 'p_benefits_content',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+}
+//Partners Page - Benefits
+add_action( 'cmb2_admin_init', 'p_pathways_register_metabox' );
+
+function p_pathways_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_p_pathways = new_cmb2_box( array(
+		'id'            => $prefix . 'partner_pathways',
+		'title'         => __( 'Pathways', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 88 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_p_pathways->add_field( array(
+		'name'       => __( 'Section Content', 'cmb2' ),
+		'id'         => 'p_pathways_content',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	$mcocp_p_pathways->add_field( array(
+		'name'       => __( 'Pathway One', 'cmb2' ),
+		'id'         => 'p_pathway_one',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	$mcocp_p_pathways->add_field( array(
+		'name'       => __( 'Pathway Two', 'cmb2' ),
+		'id'         => 'p_pathway_two',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+}
+//Partners Page - Become
+add_action( 'cmb2_admin_init', 'p_become_register_metabox' );
+
+function p_become_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_p_become = new_cmb2_box( array(
+		'id'            => $prefix . 'partner_become',
+		'title'         => __( 'Become A Partner', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 88 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_p_become->add_field( array(
+		'name'       => __( 'Section Content', 'cmb2' ),
+		'id'         => 'p_become_content',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+}
+//Partners Page - Interest Form
+add_action( 'cmb2_admin_init', 'p_interest_register_metabox' );
+
+function p_interest_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_p_interest = new_cmb2_box( array(
+		'id'            => $prefix . 'partner_interest',
+		'title'         => __( 'Partner Interest Form', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 88 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_p_interest->add_field( array(
+		'name'       => __( 'Section Content', 'cmb2' ),
+		'id'         => 'p_interest_content',
+		'type'       => 'wysiwyg',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 	) );
 }
 //Add metaboxes as needed

@@ -2890,6 +2890,23 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/css\/less\/base\/defaults-old.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 0,
+		"oAP": "\/css\/less\/base\/defaults-old.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
 	"\/css\/less\/base\/defaults.less": {
 		"aP": 0,
 		"bl": 0,
@@ -3034,8 +3051,25 @@
 		"ie": 1,
 		"iI": 0,
 		"ma": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/css\/less\/modules\/banners.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
+	"\/css\/less\/modules\/boxes.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/less\/modules\/boxes.css",
 		"oF": 0,
 		"oS": 0,
 		"rU": 0,
@@ -3068,7 +3102,7 @@
 		"ie": 1,
 		"iI": 0,
 		"ma": 1,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/css\/less\/modules\/widgets.css",
 		"oF": 0,
 		"oS": 0,
@@ -3145,6 +3179,23 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/css\/less\/theme\/front-page.less": {
+		"aP": 0,
+		"bl": 0,
+		"dJ": 0,
+		"ft": 1,
+		"ie": 1,
+		"iI": 0,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/css\/less\/theme\/front-page.css",
+		"oF": 0,
+		"oS": 0,
+		"rU": 0,
+		"sI": 0,
+		"sM": 0,
+		"sU": 0
+		},
 	"\/css\/less\/theme\/misc.less": {
 		"aP": 0,
 		"bl": 0,
@@ -3196,6 +3247,53 @@
 		"sM": 0,
 		"sU": 0
 		},
+	"\/editor-style-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/editor-style-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/editor-style-shared-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/editor-style-shared-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/editor-style-shared.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/editor-style-shared-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/editor-style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/editor-style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/fonts\/QuadratSerial.ttf": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/fonts\/QuadratSerial.ttf",
+		"oF": 0
+		},
 	"\/fonts\/readme.txt": {
 		"cB": 0,
 		"ft": 8192,
@@ -3231,6 +3329,17 @@
 		"oAP": "\/header.php",
 		"oF": 0
 		},
+	"\/img\/dayton_foundation.png": {
+		"ft": 32768,
+		"iS": 10728,
+		"oA": 0,
+		"oAP": "\/img\/dayton_foundation.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/img\/gravatar.jpg": {
 		"ft": 16384,
 		"iS": 3482,
@@ -3259,6 +3368,16 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"\/img\/mcocp-web-logo.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/img\/mcocp-web-logo.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
 		},
 	"\/img\/nav-icon.svg": {
 		"ft": 2097152,
@@ -3308,6 +3427,16 @@
 		"oA": 0,
 		"oAP": "\/index.php",
 		"oF": 0
+		},
+	"\/js\/cycle2.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/cycle2-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
 		},
 	"\/js\/lib\/conditionizr-4.3.0.min-min.js": {
 		"ft": 64,
@@ -4094,6 +4223,90 @@
 		"oAP": "\/pagination.php",
 		"oF": 0
 		},
+	"\/parts\/facts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/facts.php",
+		"oF": 0
+		},
+	"\/parts\/logos.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/logos.php",
+		"oF": 0
+		},
+	"\/parts\/page-banner.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/page-banner.php",
+		"oF": 0
+		},
+	"\/parts\/secondary-nav.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/secondary-nav.php",
+		"oF": 0
+		},
+	"\/parts\/spotlight.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/spotlight.php",
+		"oF": 0
+		},
+	"\/parts\/template-about.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-about.php",
+		"oF": 0
+		},
+	"\/parts\/template-contact.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-contact.php",
+		"oF": 0
+		},
+	"\/parts\/template-donate.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-donate.php",
+		"oF": 0
+		},
+	"\/parts\/template-mentoring.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-mentoring.php",
+		"oF": 0
+		},
+	"\/parts\/template-partners.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-partners.php",
+		"oF": 0
+		},
+	"\/parts\/template-scholarship.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-scholarship.php",
+		"oF": 0
+		},
+	"\/parts\/template-support.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/parts\/template-support.php",
+		"oF": 0
+		},
 	"\/README.md": {
 		"cB": 0,
 		"cS": 0,
@@ -4135,6 +4348,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/searchform.php",
+		"oF": 0
+		},
+	"\/searchpage.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/searchpage.php",
 		"oF": 0
 		},
 	"\/sidebar.php": {

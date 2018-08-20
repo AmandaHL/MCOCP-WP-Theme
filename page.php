@@ -1,45 +1,59 @@
 <?php get_header(); ?>
 
 	<main role="main">
+		
+		<?php if (is_page('about-us')) {
+			
+			get_template_part('parts/template-about');
+			
+		} else if(is_page('scholarship')) { 
+			
+			get_template_part('parts/template-scholarship');
+			
+		} else if(is_page('mentoring')) { 
+		
+			get_template_part('parts/template-mentoring');
+		
+		 } else if(is_page('support')) { 
+		 
+		 	get_template_part('parts/template-support');
+		
+		 } else if(is_page('donate')) { 
+			
+		 	get_template_part('parts/template-donate');
+		
+		 } else if(is_page('college-partners')) { 
+			
+			get_template_part('parts/template-partners');
+		
+		 } else if(is_page('contact-us')) { 
+		
+			get_template_part('parts/template-contact');
+			
+		 } else { ?>
+			
 		<!-- section -->
-		<section>
+			<section>
+				<div>
+					<h1><?php the_title(); ?></h1>
+					
+						<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-			<h1><?php the_title(); ?></h1>
+						<div id="post-<?php the_ID(); ?>" class="content">
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+							<?php the_content(); ?>
+							
+						</div><!--.content -->
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<?php endwhile; ?>
 
-				<?php the_content(); ?>
-
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
-
-			</article>
-			<!-- /article -->
-
-		<?php endwhile; ?>
-
-		<?php else: ?>
-
-			<!-- article -->
-			<article>
-
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
-
-			</article>
-			<!-- /article -->
-
-		<?php endif; ?>
-
-		</section>
+					<?php endif; ?>
+				</div>
+			</section>
 		<!-- /section -->
+		
+		<?php } ?>
 	</main>
 
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

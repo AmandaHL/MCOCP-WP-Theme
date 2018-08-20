@@ -4,21 +4,21 @@
 		<!-- section -->
 		<section>
 
-			<!-- article -->
-			<article id="post-404">
-
-				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
-				</h2>
-
-			</article>
-			<!-- /article -->
-
+			<div class="adjust-height">
+				
+					<div class="content not-found">
+						<h1><?php _e( 'Not Found', 'mcocp' ); ?></h1>
+						<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'mcocp' ); ?></p>
+						<div id="searchpage">
+								<h3>Enter your search term(s) below:</h3>
+								<div class="searchform" ><?php get_search_form(); ?></div><!--end searchform-->
+						</div><!--#searchpage-->
+					</div><!--.content-->
+				
+			</div>
+			
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

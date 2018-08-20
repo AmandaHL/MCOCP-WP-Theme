@@ -1,0 +1,29 @@
+//Info Boxes
+.info-box {
+	background: fade( @tan, 30% );
+	padding: 1em 0;
+	width: 98%;	
+}
+.info-box > div {
+	background: @white;
+	border: solid 1px @gold;
+	margin: -1px auto 0 auto;
+	padding: 1em;
+	width: 86%;
+	position: relative;
+	z-index: 5;
+	
+}
+.i-box-text {
+	font-weight: 600;
+	margin: 1em auto;
+	width: 90%;
+	text-align: center;
+	@media @desktop {
+		min-height: 100px;
+	}
+}
+
+.donate-box .info-box > div {
+	border-top: solid 1px @gold;
+}

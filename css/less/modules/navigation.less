@@ -18,45 +18,88 @@ footer nav {
 /*----------------------\
 header nav menu styles 
 \----------------------*/
-
-
+.help-nav {
+	background: @header-bg-color;
+	padding: .5em 0;
+	margin: .2em 0;
+	width: 100%;
+	text-align: right;
+	@media @desktop {
+		display: none;
+	}
+}
+.help-nav > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+.help-nav a {
+	color: @mob-nav-color;
+	font-size: 85%;
+}
+.help-nav img {
+	cursor: pointer;
+}
+.nav-icon {
+	margin-top:-.1em;
+	float: right;
+	text-align: right;
+}
+.search-icon {
+	margin-top:0;
+	width: 24px;	
+}
+nav li a {
+	text-decoration: none;
+	text-transform: uppercase;
+}
 .header-nav {
+	font-weight: 500;
+	margin: 0;
 	@media @desktop {
 		background: none;
 		clear: both;
 		display: inline-block;
 		height: auto;
-		margin: 1.5em 0 0 0;
+		margin: 0;
 		width: 100%;
 		z-index: 20000;
 	}
 }
 .header-nav li {
 	clear: both;
-	border-bottom: solid thin @black;
+	border-bottom: solid thin @lt-blue;
 	display: block;
-	line-height: 30px;
+	line-height: 40px;
 	position: relative;
 	text-align: center;
+	
+	&:hover {
+		background: fade(@blue, 20%);
+	}
 	@media @desktop {
 		border-bottom: none;
 		display: inline-block;
+		line-height: 60px;
 		overflow: visible;
 		padding: 0 20px;
 		text-align: left;
 		vertical-align: top;
 	}
 }
-.header-nav li:hover {
-	background: none;
-}
-.header-nav li a:hover {
+.header-nav li a {
+	color: @blue;
+	&:hover {
+		color: @menu-items-color-hover-mob;	
+	}	
 	@media @desktop {
-	color: @white;	
+		color: @white;
+		&:hover {
+			color: @menu-items-color-hover;	
+		}
 	}
 }
 .header-nav li:first-child {
-	margin-top: .5em;
+	margin-top: 0;
 	@media @desktop {
 		margin-top: 0;
 	}
@@ -64,21 +107,105 @@ header nav menu styles
 .header-nav li:last-child {
 	border-bottom: none;
 }
-nav li a {
-	height: 30px;
-	text-decoration: none;
-	text-transform: uppercase;
-}
 .header-nav .current-page-ancestor,
 .header-nav .current-menu-item {
-	background: @gray-dark;
 	@media @desktop {
-		background: none;
+		&:hover {
+			background: none;
+		}
 	}
 }
 .header-nav .current-page-ancestor a,
 .header-nav .current-menu-item a{
-	color: @white;
+	color: @mob-nav-active;
+	&:hover {
+		color: @mob-nav-active;
+	}
+}
+.header-navigation { /* hidden by js for mobile display */
+	background: @mob-nav-bg-color;
+	border-bottom: solid 8px @blue;
+	overflow-y: hidden;	
+	position: absolute;
+	top: 98%;
+	height: auto;
+	z-index: 15000;
+	width: 100%;
+	padding: 0;
+	@media @desktop {
+		background: @header-bg-color;
+		border: 0;
+		display: block !important;
+		overflow: visible;
+		position: static;
+		text-align: center;
+		height: 60px;
+	}
+}
+
+//submenus
+.header-nav .sub-menu {
+	font-size: 90%;
+	margin: 0 0 .5em 0;
+	height: auto;
+	z-index: 1000;
+	@media @phone {
+		display: block;
+		padding: 0;
+		position: relative;
+		top: 0;
+		right: 0;
+		width: 100%;
+	}
+	@media @desktop {
+		background-color: @blue;
+		display: none;
+		padding: 0 0 1em 0;
+		position: absolute;
+		top: 58px;
+		left: 10px;
+		width: 250px;
+	}
+	li{
+		border-bottom: none;
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		margin: 0;
+		padding: 0;
+		@media @desktop {
+			padding: .18em 0 0 0;
+			a {
+				padding-left: 10px;
+			}
+			&:hover {
+				background: fade(@white, 8%);
+				a {
+					color: @menu-items-color;
+					
+				}
+			}
+		}
+	}
+	.current-menu-item a {
+		color: @mob-nav-color;
+		@media @desktop {
+			color: @menu-items-color-hover;
+		}
+	}
+	.current_page_item a {
+		@media @desktop {
+			border: none;
+		}
+	}
+	li:first-child {
+		padding-top: 0;
+		@media @desktop {
+			padding-top: .3em;
+		}
+	}
+	li:last-child {	
+	}
 }
 /*----------------------\
 footer nav menu styles 

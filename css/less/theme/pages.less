@@ -1,1 +1,86 @@
 //pages.less
+/*------------------------------------*\
+	CONTACT
+\*------------------------------------*/
+.contact {
+	margin: 1em auto;
+	max-width: 1200px;
+}
+.contact > .inline {
+	clear: both;
+	width: 100%;
+	margin-bottom: 1em;
+	@media @tablet {
+		display: inline-block;
+		margin: 1em 1% 1em 0;
+		vertical-align: top;
+		width: 47.8%;
+	}
+}
+/*------------------------------------*\
+	DONATE
+\*------------------------------------*/
+.donate-main {
+	margin: 0 auto;
+	width: 100%;
+}
+.donate-main > div {
+	 	
+		@media @desktop {
+			
+			display: inline-block;
+			vertical-align: top;
+			&:first-child {
+				width: 70%;
+				padding-right: 2.8%;
+			}
+			&:last-child {
+				width: 30%;
+				max-width: 400px;
+				float: right;
+			}
+		}
+}
+
+.fine-print {
+	line-height: 100%;
+	margin: 1em auto;
+	padding: 2em 0;
+
+}
+/*------------------------------------*\
+	SCHOLARSHIP
+\*------------------------------------*/
+.recipients {
+	h3 {
+		cursor: pointer;
+	}	
+	table {
+		
+		width: auto;
+		margin: 1em 0 0 5%;
+		td {
+			padding: .5em 1.5em .5em 0;
+			text-align: left; 
+		}
+	
+	}
+
+}
+/*------------------------------------*\
+	SEARCH and NOT FOUND
+\*------------------------------------*/
+.searchpage,
+.searchform,
+.not-found {
+	
+	text-align: center;
+}
+.searchform {
+	input {
+		width: 60%;
+		margin: 1em auto 0 auto;
+		height: 40px;
+	}
+
+}

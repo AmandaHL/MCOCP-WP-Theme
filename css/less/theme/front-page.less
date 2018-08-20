@@ -1,0 +1,242 @@
+//front-page.less
+
+//Secondary navigation
+
+.nav-boxes {
+	background: -moz-linear-gradient(top, rgba(211,201,187,0.2) 0%, rgba(211,201,187,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(211,201,187,0.2) 0%,rgba(211,201,187,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(211,201,187,0.2) 0%,rgba(211,201,187,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33d3c9bb', endColorstr='#d3c9bb',GradientType=0 ); /* IE6-9 */
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	@media @desktop {
+		height: 140px;
+		margin-top: .8em;
+		margin-bottom: .2em;
+		background: -moz-linear-gradient(top, rgba(211,201,187,0.2) 0%, rgba(211,201,187,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(211,201,187,0.2) 0%,rgba(211,201,187,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(211,201,187,0.2) 0%,rgba(211,201,187,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33d3c9bb', endColorstr='#d3c9bb',GradientType=0 ); /* IE6-9 */
+	}
+}
+.nav-boxes > div {	
+	border-right: solid thin @white;
+	display: inline-block;
+	margin: 2px 0;
+	padding: .5em .6%;
+	width: 24%;
+	&:last-child {
+		border-right: none;
+	}	
+	.icon {
+		border-radius: 100%;
+		background: @black;
+		margin: 0 auto .5em auto;
+		width: 30px;
+		height: 30px;
+	}
+	.icon img {
+		width: 80%;
+		height: auto;
+		padding-top: 10%;
+	
+	}
+	.nav-text {
+		font-family: @header-font-stack;
+		font-size: 16px;
+		font-weight: 600;
+	}
+	a {
+		font-size: 65%;
+		font-weight: 500;
+	}
+	@media @desktop {
+		margin: .5em 2px 0 2px;
+		.icon {
+			margin: 0 auto .5em auto;
+			width: 40px;
+			height: 40px;
+			
+		}
+		.nav-text {
+			font-size: 22px;
+		}
+		a {
+			font-size: 75%;
+		}
+	}
+}
+
+//Mission
+.mission-content > div {
+	width: 100%;
+	margin-bottom: 1em;
+	@media @desktop {
+		display: inline-block;
+		vertical-align: top;
+		width: 43.9%;
+		&:first-child {
+			padding: 0 5.9% 0 0 ;
+			width: 55%;
+		}
+	}
+}
+//Fact Carousel
+.fact-box {
+	clear: both;
+	margin: 1em 0;	
+	padding-bottom: 2em;
+	width: 100%;
+	min-height: 300px;
+}
+.slideshow-2 {	
+	
+	width: 100%;
+}
+.fact{
+	text-align: center;	
+	margin: 0;
+	width: 100%;
+	
+}
+.fact > div{
+	width: 100%;
+	border: solid thin @black;
+	background: fade( @tan, 15% );
+	p {	
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 28px;
+		font-weight: 600;
+		line-height: 150%;
+		height: 100%;
+		padding: 10% 2%;
+		margin: auto;
+		max-width: 95.8%;
+		@media @desktop {
+			font-size: 34px;
+			padding: 10% 4.8%;
+		}
+	}
+}
+
+//Student Spotlight
+
+.student-spotlight {
+	background: fade( @blue, 10% );
+	margin: 1.5em auto;
+	padding: 1em;
+	height: 100%;
+	@media @desktop {
+		padding: 2.5em;
+	}
+}
+.cycle-spotlight {
+	background: @white;
+	border: solid thin @tan;
+}
+.slide-content {
+	height: 100%;
+	margin: 0 5% 2em 5%;
+	padding: 2.5em 0 1em 0;
+	width: 90%;
+	@media @desktop {
+		padding: 2.5em 1em 0 1em;
+		margin: 0 1%;
+		width: 97.8%;
+	}
+	
+}
+.quote {
+	
+	color: @blue;
+	font-family: @header-font-stack;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 150%;
+	>* {
+		display: inline-block;
+		vertical-align: top;
+	}
+	>div {
+		
+		padding: 0 1%;
+		width: 92%;
+	}
+	@media @desktop {
+		font-size: 22px;
+	}
+}
+.qm-left,
+.qm-right {
+	color: fade(@black, 35%);
+	font-size: 250%;
+	text-align: center;
+	}
+.qm-left {
+	float: left;
+	width: 7%;
+	max-width: 40px;
+}
+.qm-right {
+	text-align: right;
+	clear: left;
+	width: 100%;
+}
+.student-info {
+	clear: both;
+	font-size: 22px;
+	font-weight: 600;
+	text-align: right;
+	margin: 1em 0;
+	padding-bottom: 2em;
+	>div {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.student-photo {
+		border: solid thin @black;
+		margin-left: 1em;
+		width: 75px;
+		height: 75px;
+		overflow: hidden;
+		img {
+			width: auto;
+			height: 100%;
+		}
+	}
+}
+.spotlight-controls {
+	clear: both;
+	background: @wine;
+	color: @white;
+	font-family: 'Poor Story', sans-serif;
+	font-size: 24px;
+	line-height: 36px;
+	padding-left: 10px;
+	width: 100%;
+	height: 40px;
+	>* {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	a {
+		color: @white;
+		width: 26px;
+		text-align: center;
+	}
+	span {
+		color: fade(@white,30%);
+		font-size: 150%;
+	}
+}
+
+
+
+
+
+
+
+
+

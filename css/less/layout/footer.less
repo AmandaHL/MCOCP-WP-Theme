@@ -7,17 +7,80 @@
 footer {
 	color: @footer-color;
 	background: @footer-bg-color;
-	margin: 1em 0;
+	margin: 1em 0 0 0;
 	overflow: auto; /*--prevent border-collapse--*/	
-	text-align: center;
+	width: 100%;
 	@media @phone {
-		margin: 1.5em 0 1em 0;	
+		margin: 1.5em 0 0 0;	
 	}		
 }
-footer li {
-	display: inline-block;
-	padding: 1em 10px;
+.footer-contact {
+	margin: 1em auto;
+	@media @desktop {
+		
+	}
 }
+.footer-contact > div {
+	display: block;
+	@media @desktop {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.footer-logo {
+	background: @white;
+	margin: 1em auto .5em auto;
+	padding: .2em 0 .2em .1em;
+	text-align: center;
+	width: 100px;
+}
+	
+.footer-left {
+	@media @desktop  {
+		width: 70.9%;
+		p {
+			display: inline-block;
+			padding-right: 50px;
+			&:first-child {
+				border-right: solid thin @white;
+				margin-right: 50px;
+			}
+		}
+	}
+}
+.footer-right {
+	@media @desktop  {
+		width: 28%;
+		
+	}
+}
+.footer-btn {
+	display: block;
+	background: @white;
+	color: @blue;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 40px;
+	margin: 1em auto;
+	padding: 0 20px;
+	text-align: center;
+	width: 200px;
+	height: 40px;
+	@media @desktop {
+		float: right;
+		clear: both;
+		
+	}
+	
+}
+.footer-logo {
+	background: @white;
+	margin: 1em auto .5em auto;
+	padding: .2em 0 .2em .1em;
+	text-align: center;
+	width: 100px;
+}
+
 .copyright {
 	font-size: 68%;
 	padding: 1em;
