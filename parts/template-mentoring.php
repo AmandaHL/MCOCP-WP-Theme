@@ -10,6 +10,7 @@
 		$btnLinkMbrochure = get_post_meta(get_the_ID(), 'mcocp_btn_link_m_brochure', true);
 		$btnMwaiver = get_post_meta(get_the_ID(), 'mcocp_btn_txt_m_waiver', true);
 		$btnLinkMwaiver = get_post_meta(get_the_ID(), 'mcocp_btn_link_m_waiver', true);
+		$policyButtons = get_post_meta(get_the_ID(), 'm_policy_buttons', true);
 		
 	?>
 		<!-- section -->
@@ -106,7 +107,29 @@
 				<div>
 					<div class="content">
 						<?php echo $mPoliciesTxt; ?>
-						<a class="button" href="<?php echo $btnLinkMwaiver; ?>" target="_blank"><?php echo $btnMwaiver; ?></a>
+						
+						<?php
+						 if( !empty( $policyButtons ) ) {   
+							
+							// Checks and displays the retrieved values
+							foreach ( (array) $policyButtons as $key => $button ) {
+
+								$policy_link_text = $policy_link = '';
+
+							
+								if ( isset( $button ['m_policy_link_text'] ) ) {
+									$policy_link_text = esc_html(  $button['m_policy_link_text'] );
+								}
+								if ( isset( $button ['m_policy_link_box'] ) ) {
+									$policy_link = esc_html(  $button['m_policy_link_box'] );
+								}
+								//Output the Boxes
+								echo '<a class="button" href="'. $policy_link .'" target="_blank">'. $policy_link_text .'</a>';
+							}
+						
+						}
+						?>
+						
 					</div>
 				</div>
 			</section>
