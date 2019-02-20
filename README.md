@@ -4,7 +4,7 @@
 * Website: [https://mcocp.org](https://mcocp.org)
 * Author : [Amanda Long](https://designformation.co)
 
-This project was completed for the Montgomery County Ohio College Promise program.  
+This project was completed for the Montgomery County Ohio College Promise program which is affiliated with the Dayton Foundation.  
 
 # Created using the [HTML5 Blank](http://html5blank.com) shell theme.
 
