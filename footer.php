@@ -3,16 +3,20 @@
 				<section>
 					<div class="footer-contact">
 						<div class="footer-left">
-							<p>Call Us:<br>937-225-9922 or 937-225-9957</p>
+							<p>Call Us:<br>xxx-xxx-xxxx or xxx-xxx-xxxx</p>
 							<p>Find Us:<br>40 N. Main Street, Suite 500, Dayton, Ohio 45423</p>
-						</div>
-						<div class="footer-right">
 							<a href="<?php bloginfo('wpurl');?>/contact-us" class="footer-btn">Send Us an Email</a>
 						</div>
+						<div class="footer-right">
+							<div class="footer-logo">
+								<a href="https://www.daytonfoundation.org" target="_blank"><img src="<?php echo get_template_directory_uri();?>/img/The_Dayton_Foundation.jpg" alt="The Dayton Foundation"></a>
+							
+								<p class="tdf">Montgomery County Ohio College Promise is a fund of The Dayton Foundation.</p>
+							</div><!--.footer-logo-->
+						</div>
 					</div><!--.footer-contact-->
-					<div class="footer-logo">
-						<img src="<?php echo get_template_directory_uri();?>/img/dayton_foundation.png" alt="The Dayton Foundation">
-					</div><!--.footer-logo-->
+					
+					
 
 					<!-- copyright -->
 					<p class="copyright">
