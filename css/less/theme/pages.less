@@ -41,7 +41,6 @@
 			}
 		}
 }
-
 .fine-print {
 	line-height: 100%;
 	margin: 1em auto;
@@ -54,18 +53,29 @@
 .recipients {
 	h3 {
 		cursor: pointer;
+		padding-bottom: .5em;
+		span {
+			display: inline-block;
+			background: fade(@tan,40%);
+			border: solid thin @gold;
+			color: @blue;
+			font-size: 50%;
+			margin: 0 1em;
+			padding: 5px .5em 1px .5em;
+			vertical-align: text-top;
+			line-height: 100%;
+		}
 	}	
 	table {
 		
 		width: auto;
-		margin: 1em 0 0 5%;
+		margin: .5em 0 1em 5%;
 		td {
-			padding: .5em 1.5em .5em 0;
+			padding: .2em 1.5em .2em 0;
 			text-align: left; 
+			vertical-align: top;
 		}
-	
 	}
-
 }
 /*------------------------------------*\
 	SEARCH and NOT FOUND
@@ -78,9 +88,14 @@
 }
 .searchform {
 	input {
-		width: 60%;
+		-webkit-appearance: none; /* remove ios border radius */
+		width: 100%;
+		max-width: 300px;
 		margin: 1em auto 0 auto;
 		height: 40px;
+		@media @desktop {
+			width: 60%;
+			max-width: 600px;
+		}
 	}
-
 }
