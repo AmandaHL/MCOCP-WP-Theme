@@ -14,75 +14,98 @@ footer {
 		margin: 1.5em 0 0 0;	
 	}		
 }
+footer section > div {
+	background: @black;
+}
 .footer-contact {
-	margin: 1em auto;
-	@media @desktop {
-		
+	margin: 2em auto 0 auto;
+	@media @tablet {
+		width: 96%;	
 	}
 }
 .footer-contact > div {
+	display: inline-block;
+	vertical-align: top;
 	display: block;
-	@media @desktop {
+	@media @tablet {
 		display: inline-block;
-		vertical-align: middle;
+		vertical-align: top;
 	}
-}
-.footer-logo {
-	background: @white;
-	margin: 1em auto .5em auto;
-	padding: .2em 0 .2em .1em;
-	text-align: center;
-	width: 100px;
 }
 	
 .footer-left {
-	@media @desktop  {
-		width: 70.9%;
+	text-align:left;
+	width: 80%;
+	margin: 0 auto;
+	a {
+		color: @white;
+	}
+	@media @tablet  {
+		text-align: left;
+		width: 65.9%;
 		p {
 			display: inline-block;
-			padding-right: 50px;
+			padding-right: 30px;
 			&:first-child {
 				border-right: solid thin @white;
-				margin-right: 50px;
+				margin-right: 30px;
 			}
 		}
 	}
 }
 .footer-right {
-	@media @desktop  {
-		width: 28%;
-		
+	@media @tablet  {
+		width: 33%;	
 	}
 }
 .footer-btn {
 	display: block;
 	background: @white;
-	color: @blue;
+	color: @blue !important;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 40px;
-	margin: 1em auto;
+	margin: 1.5em auto 2em auto;
 	padding: 0 20px;
 	text-align: center;
 	width: 200px;
 	height: 40px;
-	@media @desktop {
-		float: right;
-		clear: both;
-		
+	@media @tablet {
+		margin-left: 0;
 	}
-	
 }
 .footer-logo {
-	background: @white;
-	margin: 1em auto .5em auto;
+	background: @black;
+	margin: 0 auto .5em auto;
 	padding: .2em 0 .2em .1em;
 	text-align: center;
-	width: 100px;
+	width: 100%;
+	img {
+		width: 70px;
+	}
+	@media @tablet {
+		float: right;
+		clear: left;
+		text-align: center;
+		width: 150px;
+		img {
+			width: 90px;
+		}
+	}
 }
-
+.tdf {
+	margin: .5em auto 0 auto;
+	font-size: 70%;
+	line-height: 120%;
+	text-align: center;
+	width: 50%;
+	@media @tablet {
+		text-align: center;
+		width: 100%;
+	}
+}
 .copyright {
 	font-size: 68%;
-	padding: 1em;
+	padding: 0 1em 1em 1em;
 	text-align: center;
 }
