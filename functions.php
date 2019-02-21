@@ -1,9 +1,8 @@
 <?php
 /*
  *  Author: Todd Motto | @toddmotto
- *  URL: html5blank.com | @html5blank
+ *  URL: mcocp.com | @mcocp
  *  Custom functions, support, custom post types and more.
- *  Additional MCOCP theme function added by Amanda Long
  */
 
 /*------------------------------------*\
@@ -33,6 +32,9 @@ if (function_exists('add_theme_support'))
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
+	@ini_set( 'upload_max_size' , '64M' );
+	@ini_set( 'post_max_size', '64M');
+	@ini_set( 'max_execution_time', '300' );
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
 	'default-color' => 'FFF',
@@ -56,7 +58,7 @@ if (function_exists('add_theme_support'))
     add_theme_support('automatic-feed-links');
 
     // Localisation Support
-    load_theme_textdomain('html5blank', get_template_directory() . '/languages');
+    load_theme_textdomain('mcocp', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
@@ -64,7 +66,7 @@ if (function_exists('add_theme_support'))
 \*------------------------------------*/
 
 // HTML5 Blank navigation
-function html5blank_nav()
+function mcocp_nav()
 {
 	wp_nav_menu(
 	array(
@@ -89,7 +91,7 @@ function html5blank_nav()
 }
 
 // Load HTML5 Blank scripts (header.php)
-function html5blank_header_scripts()
+function mcocp_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
 
@@ -99,15 +101,16 @@ function html5blank_header_scripts()
         wp_register_script('modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1'); // Modernizr
         wp_enqueue_script('modernizr'); // Enqueue it!
 
-        wp_register_script('html5blankscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
-        wp_enqueue_script('html5blankscripts'); // Enqueue it!
+        wp_register_script('mcocpscripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0'); // Custom scripts
+        wp_enqueue_script('mcocpscripts'); // Enqueue it!
+		
         wp_register_script( 'jqueryCycle2', get_template_directory_uri() . '/js/cycle2.js' , array ( 'jquery'), '1.0', true); 
 		wp_enqueue_script( 'jqueryCycle2');
     }
 }
 
 // Load HTML5 Blank conditional scripts
-function html5blank_conditional_scripts()
+function mcocp_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
         wp_register_script('scriptname', get_template_directory_uri() . '/js/scriptname.js', array('jquery'), '1.0.0'); // Conditional script(s)
@@ -116,22 +119,22 @@ function html5blank_conditional_scripts()
 }
 
 // Load HTML5 Blank styles
-function html5blank_styles()
+function mcocp_styles()
 {
     wp_register_style('normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all');
     wp_enqueue_style('normalize'); // Enqueue it!
 
-    wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('html5blank'); // Enqueue it!
+    wp_register_style('mcocp', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_enqueue_style('mcocp'); // Enqueue it!
 }
 
 // Register HTML5 Blank Navigation
 function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'footer-menu' => __('Footer Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu' => __('Header Menu', 'mcocp'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'mcocp'), // Sidebar Navigation
+        'footer-menu' => __('Footer Menu', 'mcocp') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -177,8 +180,8 @@ if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 1', 'mcocp'),
+        'description' => __('Description for this widget-area...', 'mcocp'),
         'id' => 'widget-area-1',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -188,8 +191,8 @@ if (function_exists('register_sidebar'))
 
     // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 2', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
+        'name' => __('Widget Area 2', 'mcocp'),
+        'description' => __('Description for this widget-area...', 'mcocp'),
         'id' => 'widget-area-2',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -254,7 +257,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'mcocp') . '</a>';
 }
 
 // Remove Admin bar
@@ -277,7 +280,7 @@ function remove_thumbnail_dimensions( $html )
 }
 
 // Custom Gravatar in Settings > Discussion
-function html5blankgravatar ($avatar_defaults)
+function mcocpgravatar ($avatar_defaults)
 {
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
@@ -295,7 +298,7 @@ function enable_threaded_comments()
 }
 
 // Custom Comments Callback
-function html5blankcomments($comment, $args, $depth)
+function mcocpcomments($comment, $args, $depth)
 {
 	$GLOBALS['comment'] = $comment;
 	extract($args, EXTR_SKIP);
@@ -343,10 +346,10 @@ function html5blankcomments($comment, $args, $depth)
 \*------------------------------------*/
 
 // Add Actions
-add_action('init', 'html5blank_header_scripts'); // Add Custom Scripts to wp_head
-add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditional Page Scripts
+add_action('init', 'mcocp_header_scripts'); // Add Custom Scripts to wp_head
+add_action('wp_print_scripts', 'mcocp_conditional_scripts'); // Add Conditional Page Scripts
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
+add_action('wp_enqueue_scripts', 'mcocp_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
@@ -367,7 +370,7 @@ remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 // Add Filters
-add_filter('avatar_defaults', 'html5blankgravatar'); // Custom Gravatar in Settings > Discussion
+add_filter('avatar_defaults', 'mcocpgravatar'); // Custom Gravatar in Settings > Discussion
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
@@ -571,6 +574,9 @@ function mcocp_show_if_front_page( $cmb ) {
 /**
 	* General Metaboxes
 */
+/*
+	* Home Page Metaboxes
+*/
 //Default Page Banner
 add_action( 'cmb2_init', 'page_banner_register_metabox' );
 function page_banner_register_metabox() {
@@ -580,6 +586,7 @@ function page_banner_register_metabox() {
 		'id'            => $prefix . 'banner_box',
 		'title'         => __( 'Page Banner', 'cmb2' ),
 		'object_types'  => array( 'page', ), // Post type
+		'show_on_cb' => 'mcocp_show_if_front_page',
 		'closed'     => true, // true to keep the metabox closed by default
 	) );
 	$mcocp_banner_box->add_field( array(
@@ -588,88 +595,8 @@ function page_banner_register_metabox() {
 		'id'   => $prefix . 'banner_image',
 		'type' => 'file'
 	) );
-	$mcocp_banner_box->add_field( array(
-		'name' => esc_html__( 'Title Text', 'cmb2' ),
-		'desc' => esc_html__( 'Customize large banner text.', 'cmb2' ),
-		'id'   => $prefix . 'landing_title',
-		'type' => 'textarea_small'
-	) );
-	$mcocp_banner_box->add_field( array(
-		'name' => esc_html__( 'Banner Text', 'cmb2' ),
-		'desc' => esc_html__( 'Add additional paragraph text.', 'cmb2' ),
-		'id'   => $prefix . 'lg_banner_text',
-		'type' => 'textarea_small'
-	) );
-}
-
-//Hero Slideshow
-add_action( 'cmb2_admin_init', 'home_slider_register_metabox' );
-function home_slider_register_metabox() {
-	$prefix = 'mcocp_group_';
-	/**
-	 * Repeatable Field Groups
-	 */
-	$mcocp_slide_group = new_cmb2_box( array(
-		'id'           => $prefix . 'home_slides',
-		'title'        => __( 'Home Page Slider', 'cmb2' ),
-		'object_types' => array( 'page', ),
-		'show_on_cb' => 'mcocp_show_if_front_page',
-		'closed'     => true, // true to keep the metabox closed by default
-		
-	) );
-
-	// $group_field_id is the field id string, so in this case: $prefix . 'home_slider_box'
-	$group_field_id = $mcocp_slide_group->add_field( array(
-		'id'          => 'home_slider_box',
-		'type'        => 'group',
-		'description' => __( 'Use the fields below to populate the slider. Add additional slides as needed.' ),
-		'options'     => array(
-			'group_title'   => __( 'Slide {#}', 'cmb2' ), // {#} gets replaced by row number
-			'add_button'    => __( 'Add Slide', 'cmb2' ),
-			'remove_button' => __( 'Remove Slide', 'cmb2' ),
-			'sortable'      => true, 
-			'closed'     => true, // true to have the groups closed by default
-		),
-	) );
-	/**
-	 * Group fields works the same, except ids only need
-	 * to be unique to the group. Prefix is not needed.
-	 *
-	 * The parent field's id needs to be passed as the first argument.
-	 */
-	 
-	$mcocp_slide_group->add_group_field( $group_field_id, array(
-		'name' => __( 'Slide Image', 'cmb2' ),
-		'description' => __( 'Upload Slide Image', 'cmb2' ),
-		'id'   => 'slide_image',
-		'type' => 'file',
-	) );
-	$mcocp_slide_group->add_group_field( $group_field_id, array(
-		'name'        => __( 'Slide Header', 'cmb2' ),
-		'description' => __( 'Add Header Text.', 'cmb2' ),
-		'id'          => 'slide_header',
-		'type'        => 'textarea_small',
-	) );
-	$mcocp_slide_group->add_group_field( $group_field_id, array(
-		'name'        => __( 'Slide Text', 'cmb2' ),
-		'description' => __( 'Add Paragraph Text.', 'cmb2' ),
-		'id'          => 'slide_text',
-		'type'        => 'textarea_small',
-	) );
 	
-
-	$mcocp_slide_group->add_group_field( $group_field_id, array(
-		'name' => esc_html__( 'Link to Page', 'cmb2' ),
-		'desc' => esc_html__( 'Input the url for the Learn More destination page.', 'cmb2' ),
-		'id'   => 'learn_more',
-		'type' => 'text_url',
-	) );
-
 }
-
-/**
-	* Home Page Metaboxes
-*/
 	
 //Secondary Navigation
 add_action( 'cmb2_admin_init', 'mcocp_nav_boxes_register' );
@@ -762,7 +689,32 @@ function spotlight_register_metabox() {
 /**
 	* Page Metaboxes
 */
+//About Page - Link to Brochure
+add_action( 'cmb2_init', 'about_brochure_register_metabox' );
+function about_brochure_register_metabox() {
+	$prefix = 'mcocp_';
 
+	$mcocp_a_brochure = new_cmb2_box( array(
+		'id'            => $prefix . 'about_brochure',
+		'title'         => __( 'Link to Brochure', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 73 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	
+	$mcocp_a_brochure->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_brochure',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_a_brochure->add_field( array(
+		'name' => esc_html__( 'Add Brochure Link.', 'cmb2' ),
+		'desc' => esc_html__( 'Copy and paste the pdf link from the Media Editor into the field.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_brochure',
+		'type' => 'text_url'
+	) );
+}
 //About Page - Donors
 add_action( 'cmb2_init', 'donors_register_metabox' );
 function donors_register_metabox() {
@@ -836,6 +788,31 @@ function partners_register_metabox() {
 			'id'          => 'logo_url',
 			'type' => 'text_url',
 		) );
+}
+//About Page - Become a Partner Button
+add_action( 'cmb2_init', 'a_mentor_btn_register_metabox' );
+function a_mentor_btn_register_metabox() {
+	$prefix = 'mcocp_';
+
+	$mcocp_a_mentor_btn = new_cmb2_box( array(
+		'id'            => $prefix . 'a_mentor_button',
+		'title'         => __( 'Become A Partner Button', 'cmb2' ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'id', 'value' => array( 73 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$mcocp_a_mentor_btn->add_field( array(
+		'name' => esc_html__( 'Button Text', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
+		'id'   => $prefix . 'btn_txt_a_mentor',
+		'type' => 'textarea_small'
+	) );
+	$mcocp_a_mentor_btn->add_field( array(
+		'name' => esc_html__( 'Button Link', 'cmb2' ),
+		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
+		'id'   => $prefix . 'btn_link_a_mentor',
+		'type' => 'text_url'
+	) );
 }
 //Scholarship Page - Application Process
 add_action( 'cmb2_init', 'process_register_metabox' );
@@ -1004,19 +981,47 @@ function mentor_policies_register_metabox() {
 		'id'   => $prefix . 'm_policies_txt',
 		'type' => 'wysiwyg'
 	) );
-	$mcocp_m_policies->add_field( array(
-		'name' => esc_html__( 'Button Text', 'cmb2' ),
-		'desc' => esc_html__( 'Add the button text.', 'cmb2' ),
-		'id'   => $prefix . 'btn_txt_m_waiver',
-		'type' => 'textarea_small'
-	) );
-	$mcocp_m_policies->add_field( array(
-		'name' => esc_html__( 'Button Link', 'cmb2' ),
-		'desc' => esc_html__( 'Add the button link.', 'cmb2' ),
-		'id'   => $prefix . 'btn_link_m_waiver',
-		'type' => 'text_url'
-	) );
+}
+
+add_action( 'cmb2_admin_init', 'm_policy_buttons_register_metabox' );
+function m_policy_buttons_register_metabox() {
+	$prefix = 'mcocp_group_';
 	
+	$mcocp_m_policy_btn_group = new_cmb2_box( array(
+		'id'           => $prefix . 'policy_buttons',
+		'title'        => __( 'Policy Resource Buttons', 'cmb2' ),
+		'object_types' => array( 'page'),
+		'show_on' => array( 'key' => 'id', 'value' => array( 8 ) ),
+		'closed'     => true, // true to keep the metabox closed by default
+	) );
+
+	$group_field_id = $mcocp_m_policy_btn_group->add_field( array(
+		'id'          => 'm_policy_buttons',
+		'type'        => 'group',
+		'description' => __( 'Use the fields below to add/edit buttons. ' ),
+		'options'     => array(
+			'group_title'   => __( 'Button {#}', 'cmb2' ), // {#} gets replaced by row number
+			/*'add_button'    => __( 'Add Another Box', 'cmb2' ),
+			'remove_button' => __( 'Remove Box', 'cmb2' ),*/
+			'add_button'    => false,
+			'remove_button' => false,
+			'sortable'      => true, 
+			'closed'     => true, 
+		),
+	) );
+
+	$mcocp_m_policy_btn_group->add_group_field( $group_field_id, array(
+		'name' => __( 'Button Link', 'cmb2' ),
+		'id'   => 'm_policy_link_text',
+		'type' => 'text',
+	) );
+	$mcocp_m_policy_btn_group->add_group_field( $group_field_id, array(
+		'name' => esc_html__( 'Link to Content', 'cmb2' ),
+		'desc' => esc_html__( 'Input the url for the featured content.', 'cmb2' ),
+		'id'   => 'm_policy_link_box',
+		'type' => 'text_url',
+	) );
+
 }
 //Support Page - Boxes
 add_action( 'cmb2_admin_init', 'support_register_metabox' );
